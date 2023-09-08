@@ -2,11 +2,11 @@
   "name": "movie-react-app",
   "private": true,
   "version": "0.0.0",
-  "homepage": "https://MohMeri73.github.io/movie-time-react-app",
+  "homepage": "https://mohmeri73.github.io/movie-time-react-app",
   "type": "module",
   "scripts": {
     "predeploy": "npm run build",
-    "deploy": "gh-pages -d build",
+    "deploy": "gh-pages -d dist",
     "dev": "vite",
     "build": "vite build",
     "lint": "eslint . --ext js,jsx --report-unused-disable-directives --max-warnings 0",
