@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
-import { useSelector } from "react-redux/es/hooks/useSelector";
+import { useSelector } from "react-redux";
 import "./style.scss";
 
 import useFetch from "../../../hooks/useFetch";
@@ -30,26 +30,30 @@ const HeroBanner = () => {
 
   return (
     <div className="heroBanner">
-      <div className="backdrop-img">
-        <Img src={background} />
-      </div>
-      <div className="wrapper">
+      {!loading && (
+        <div className="backdrop-img">
+          <Img src={background} />
+        </div>
+      )}
+
+      <div className="opacity-layer"></div>
+      <ContentWrapper>
         <div className="heroBannerContent">
-          <span className="title">welcome</span>
+          <span className="title">Welcome.</span>
           <span className="subTitle">
-            Milions of movies, TV shows and people to discover. Explore Now.
+            Millions of movies, TV shows and people to discover. Explore now.
           </span>
           <div className="searchInput">
             <input
               type="text"
-              placeholder="Search for a movie or series..."
+              placeholder="Search for a movie or tv show...."
               onChange={(e) => setQuery(e.target.value)}
               onKeyUp={searchQueryHandler}
             />
             <button>Search</button>
           </div>
         </div>
-      </div>
+      </ContentWrapper>
     </div>
   );
 };
