@@ -1,7 +1,7 @@
 import React from "react";
 import { FaGithub, FaTelegram, FaLinkedin } from "react-icons/fa";
 
-import ContentWrapper from "../contentWrapper/contantWrapper";
+import ContentWrapper from "../contentWrapper/contentWrapper";
 
 import "./style.scss";
 
