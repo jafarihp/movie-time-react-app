@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { fetchDataFromApi } from "./utils/api";
 import { useSelector, useDispatch } from "react-redux";
-import { getApiConfiguration, getGeneres } from "./store/homeSlice";
+import { getApiConfiguration, getGenres } from "./store/homeSlice";
 
 import Header from "./components/header/Header";
 import Footer from "./components/footer/Footer";
@@ -51,14 +51,14 @@ function App() {
       return genres.map((item) => (allGenres[item.id] = item));
     });
 
-    dispatch(getGeneres(allGenres));
+    dispatch(getGenres(allGenres));
   };
 
   return (
     <BrowserRouter>
       <Header />
       <Routes>
-        <Route path="/movie-time-react-app" element={<Home />} />
+        <Route path="/movie-time-react-app/" element={<Home />} />
         <Route path="/:mediaType/:id" element={<Details />} />
         <Route path="/search/:query" element={<SearchResult />} />
         <Route path="/explore/:mediaType" element={<Explore />} />

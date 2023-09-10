@@ -7,7 +7,7 @@ import { useNavigate } from "react-router-dom";
 import { useSelector } from "react-redux";
 import dayjs from "dayjs";
 
-import ContentWrapper from "../contentWrapper/contentWrapper";
+import ContentWrapper from "../contentWrapper/ContentWrapper";
 import Img from "../lazyLoadImage/Img";
 import PosterFallback from "../../assets/no-poster.png";
 import CircleRating from "../circleRating/CircleRating";
@@ -69,7 +69,11 @@ const Carousel = ({ data, loading, endpoint, title }) => {
                   key={item.id}
                   className="carouselItem"
                   onClick={() =>
-                    navigate(`/${item.media_type || endpoint}/${item.id}`)
+                    navigate(
+                      `/movie-time-react-app/${item.media_type || endpoint}/${
+                        item.id
+                      }`
+                    )
                   }
                 >
                   <div className="posterBlock">
