@@ -6,10 +6,13 @@ import ContentWrapper from "../../../components/contentWrapper/ContentWrapper";
 import useFetch from "../../../hooks/useFetch";
 import Img from "../../../components/lazyLoadImage/Img";
 import PosterFallBack from "../../../assets/no-poster.png";
+import { useSelector } from "react-redux";
 
 const DetailsBanner = ({ video, crew }) => {
   const { mediaType, id } = useParams();
   const { data, loading } = useFetch(`/${mediaType}/${id}`);
+
+  const { url } = useSelector((state) => state.home);
 
   const toHoursAndMinutes = (totalMinutes) => {
     const hours = Math.floor(totalMinutes / 60);
