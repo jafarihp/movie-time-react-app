@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { useParams } from "react-router-dom";
+import dayjs from "dayjs";
 
 import "./style.scss";
 import ContentWrapper from "../../../components/contentWrapper/ContentWrapper";
@@ -7,12 +8,16 @@ import useFetch from "../../../hooks/useFetch";
 import Img from "../../../components/lazyLoadImage/Img";
 import PosterFallBack from "../../../assets/no-poster.png";
 import { useSelector } from "react-redux";
+import Genres from "../../../components/genres/Genres";
+import CircleRating from "../../../components/circleRating/CircleRating";
 
 const DetailsBanner = ({ video, crew }) => {
   const { mediaType, id } = useParams();
   const { data, loading } = useFetch(`/${mediaType}/${id}`);
 
   const { url } = useSelector((state) => state.home);
+
+  const _genres = data?.genres?.map((g) => g.id);
 
   const toHoursAndMinutes = (totalMinutes) => {
     const hours = Math.floor(totalMinutes / 60);
@@ -42,7 +47,18 @@ const DetailsBanner = ({ video, crew }) => {
                       <Img className="posterImg" src={PosterFallBack} />
                     )}
                   </div>
-                  <div className="right"></div>
+                  <div className="right">
+                    <div className="title">
+                      {`${data.name || data.title} (${dayjs(
+                        data?.release_date
+                      ).format("YYYY")})`}
+                    </div>
+                    <div className="subtitle">{data.tagline}</div>
+                    <Genres data={_genres} />
+                    <div className="row">
+                      <CircleRating rating={data.vote_average.toFixed(1)} />
+                    </div>
+                  </div>
                 </div>
               </ContentWrapper>
             </React.Fragment>
