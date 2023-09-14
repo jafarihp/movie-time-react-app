@@ -63,8 +63,14 @@ function App() {
           path="/movie-time-react-app/:mediaType/:id"
           element={<Details />}
         />
-        <Route path="/search/:query" element={<SearchResult />} />
-        <Route path="/explore/:mediaType" element={<Explore />} />
+        <Route
+          path="/movie-time-react-app/search/:query"
+          element={<SearchResult />}
+        />
+        <Route
+          path="/movie-time-react-app/explore/:mediaType"
+          element={<Explore />}
+        />
         <Route path="*" element={<PageNotFound />} />
       </Routes>
       <Footer />
