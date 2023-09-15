@@ -18,7 +18,11 @@ const MovieCard = ({ data, fromSearch, mediaType }) => {
   return (
     <div
       className="movieCard"
-      onClick={() => navigate(`/${data.media_type || mediaType}/${data.id}`)}
+      onClick={() =>
+        navigate(
+          `/movie-time-react-app/${data.media_type || mediaType}/${data.id}`
+        )
+      }
     >
       <div className="posterBlock">
         <Img className="posterImg" src={posterUrl} />

@@ -44,7 +44,7 @@ const Header = () => {
 
   const searchQueryHandler = (event) => {
     if (event.key === "Enter" && query.length > 0) {
-      navigate(`/search/${query}`);
+      navigate(`/movie-time-react-app/search/${query}`);
       setTimeout(() => {
         setShowSearch(false);
       }, 1000);
@@ -63,9 +63,9 @@ const Header = () => {
 
   const navigationHandler = (type) => {
     if (type === "movie") {
-      navigate("/explore/movie");
+      navigate("/movie-time-react-app/explore/movie");
     } else {
-      navigate("/explore/tv");
+      navigate("/movie-time-react-app/explore/tv");
     }
     setMobileMenu(false);
   };
